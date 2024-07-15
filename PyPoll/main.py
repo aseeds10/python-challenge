@@ -3,9 +3,9 @@ import os
 import csv
 pollpath = os.path.join('..','Resources','election_data.csv')
 
-#initialize starters
-unique_votes=set()
-unique_candidates=set()
+#initialize starters. made an empty set where applicable
+unique_votes= set()
+unique_candidates= set()
 #add the rest of starters here, once do this step
 
 # Reading using csv module. Open CSV file
@@ -18,16 +18,23 @@ with open(pollpath, encoding="utf-8") as pollfile:
         unique_votes.add(vote) #add unique vote to set after each loop
 
         candidate_column=row[2] #3rd column
-        candidate = candidate_column.split(",")[0] #1st elmen after comma split? 
+        candidate = candidate_column.split(",")[0] #1st elmen after comma split?
         #note to self: I don't think split was necessary but was not sure how to add to set without this
         unique_candidates.add(candidate) #add unique candidate to set after each loop
 #calculations based on above loops etc
 #calc total votes
 NUM_VOTES=len(unique_votes)
 print("Total Votes: ",NUM_VOTES)
-#calc total candidates. do not need to print
+#calc total candidates. do not need to print; just checking I did it correctly
 NUM_CANDIDATES=len(unique_candidates)
-print(NUM_CANDIDATES)
+#print(NUM_CANDIDATES)
+# checking to see if can print each candidate. cheange set to list
+# can fix this later to print each with its vote count?
+unique_candidates_list = list(unique_candidates)
+# Sort alphabetically based on the names and print. use this later once calc votes for each above this line
+candidates_sorted = sorted(unique_candidates_list)
+for candidate in candidates_sorted:
+    print(candidate)
 # Specify the file to write to
 #output_path = os.path.join('..','Analysis','PyPoll_Results.txt')
 # Open the file using "write" mode. Specify the variable to hold the contents
