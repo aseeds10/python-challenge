@@ -28,24 +28,28 @@ with open(pollpath, encoding="utf-8") as pollfile:
             candidate_votes[candidate] += 1
         else:
             candidate_votes[candidate] = 1
+        #loop to cal percentage of each
+        
 
-#calculations based on above loops etc
+#Calculations based on above loops etc
 #calc total votes
 NUM_VOTES=len(unique_votes)
 print("Total Votes: ",NUM_VOTES)
+
 #calc total candidates. do not need to print; just checking I did it correctly
-NUM_CANDIDATES=len(unique_candidates)
+#NUM_CANDIDATES=len(unique_candidates)
 #print(NUM_CANDIDATES)
-# checking to see if can print each candidate. cheange set to list
-# can fix this later to print each with its vote count?
-unique_candidates_list = list(unique_candidates)
-# Display the vote count for each candidate
-for candidate, votes in candidate_votes.items():
-    print(f"{candidate}: {votes}")
+# checking to see if can print each candidate correctly. change set to list
+#unique_candidates_list = list(unique_candidates)
 # Sort alphabetically based on the names and print. use this later once calc votes for each above this line
 #candidates_sorted = sorted(unique_candidates_list)
 #for candidate in candidates_sorted:
 #    print(candidate)
+
+# Display the vote count for each candidate. calc percentage before this and add to the below to display too
+for candidate, votes in candidate_votes.items():
+    percentage_vote = votes/NUM_VOTES*100
+    print(f"{candidate}: {percentage_vote:.3f}% ({votes})")
 #Calculate winner based on maximum votes. Use dictonary key ID to ID name of candidate bc using dictionary
 winner = max(candidate_votes, key=candidate_votes.get)
 print("Winner: ", winner)
