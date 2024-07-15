@@ -51,5 +51,18 @@ date_greatest_increase = dates[index_greatest_increase+1]  # Add 1 to account fo
 date_greatest_decrease = dates[index_greatest_decrease+1]  # Add 1 to account for skipping the first row
 print("Greatest Increase in Profits:", date_greatest_increase, "($", greatest_increase, ")")
 print("Greatest Decrease in Profits:", date_greatest_decrease, "($", greatest_decrease, ")")
+
 #dates are different when I run them? but min and mx number stays the same...
+
 # Specify the file to write to
+output_path = os.path.join('..','Analysis','PyBank_Results.txt')
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as file:
+    file.write("Financial Analysis\n")
+    file.write("----------------------------\n")
+    file.write(f"Total Months: {NUM_MONTHS}\n")
+    file.write(f"Total: {TOTAL_PROFIT_LOSSES}\n")
+    file.write(f"Average Change: ${round(average_change, 2)}\n")
+    file.write(f"Greatest Increase in Profits: {date_greatest_increase} (${greatest_increase})\n")
+    file.write(f"Greatest Decrease in Profits: {date_greatest_decrease} (${greatest_decrease})\n")
+print("Results exported to PyBank_Results.txt")
