@@ -6,6 +6,7 @@ pollpath = os.path.join('..','Resources','election_data.csv')
 #initialize starters. made an empty set where applicable
 unique_votes= set()
 unique_candidates= set()
+candidate_votes = {} #use dictironary to hold vote for each candidate
 #add the rest of starters here, once do this step
 
 # Reading using csv module. Open CSV file
@@ -20,7 +21,14 @@ with open(pollpath, encoding="utf-8") as pollfile:
         candidate_column=row[2] #3rd column
         candidate = candidate_column.split(",")[0] #1st elmen after comma split?
         #note to self: I don't think split was necessary but was not sure how to add to set without this
+        #later saw could do candidate = row[2]
         unique_candidates.add(candidate) #add unique candidate to set after each loop
+        #do loop to count each instance of each unique candidate
+        if candidate in candidate_votes:
+            candidate_votes[candidate] += 1
+        else:
+            candidate_votes[candidate] = 1
+
 #calculations based on above loops etc
 #calc total votes
 NUM_VOTES=len(unique_votes)
@@ -31,10 +39,17 @@ NUM_CANDIDATES=len(unique_candidates)
 # checking to see if can print each candidate. cheange set to list
 # can fix this later to print each with its vote count?
 unique_candidates_list = list(unique_candidates)
+# Display the vote count for each candidate
+for candidate, votes in candidate_votes.items():
+    print(f"{candidate}: {votes}")
 # Sort alphabetically based on the names and print. use this later once calc votes for each above this line
-candidates_sorted = sorted(unique_candidates_list)
-for candidate in candidates_sorted:
-    print(candidate)
+#candidates_sorted = sorted(unique_candidates_list)
+#for candidate in candidates_sorted:
+#    print(candidate)
+#Calculate winner based on maximum votes. Use dictonary key ID to ID name of candidate bc using dictionary
+winner = max(candidate_votes, key=candidate_votes.get)
+print("Winner: ", winner)
+
 # Specify the file to write to
 #output_path = os.path.join('..','Analysis','PyPoll_Results.txt')
 # Open the file using "write" mode. Specify the variable to hold the contents
