@@ -1,17 +1,19 @@
-#import csv using module for it
+#importing file using modules for it
 import os
 import csv
-bankpath = os.path.join('..','python-challenge','PyBank','Resources','budget_data.csv')
-#reading using csv moduule. open csv file
-with open(bankpath, encoding='UTF-8') as bankfile:
+bankpath = os.path.join('..','Resources','Budget_data.csv')
+# Reading using csv module. Open CSV file
+with open(bankpath, encoding="utf-8") as bankfile:
     bankreader = csv.reader(bankfile)
-    # Create a set to store unique months
     unique_months = set()
 
+    # Skip the header row
+    next(bankreader)  # Skip the header row
+    
     # Loop through the rows in the CSV file
     for row in bankreader:
-        date = row['Date']
-        month = date.split("-")[1]
+        date = row[0]  # Assuming the date is in the first column
+        month = date.split(",")[0]  # Extract the month from the date. 1st element after split
         unique_months.add(month)
 
 # Count the number of unique months
