@@ -1,13 +1,22 @@
-This repo has submission for PyPoll and PyBank tasks.
-I used Xpert Learning Assistant for help debugging and with templates/concepts.
-You can view the My Notes doc to see areas in which I used the learning asisstant and some of my thought proceess.
-I also had a physical notebook I used to write my brainstorms.
+# Python Challenge
+Challenge 3 - Python
 
-PLEASE NOTE 1:
-Please make sure to naviagte to current cd in terminal so it can run smoothly.
-I had to do that at the start of running the code for the first time or else I would get a 'file not found' message.
+## Description
+Prompt: 
+<br>Use theconcepts I have learned to complete two Python challenges, PyBank and PyPoll. Both tasks present a real-world situation where my newly developed Python scripting skills come in handy.
+<br>
+<br> PyBank: Create a Python script to analyze the financial records of the company. Used financial dataset called budget_data.csv .
+<br> PyPoll: I help a small, rural town modernize its vote-counting process. Use set of poll data called election_data.csv .
 
-PLEASE NOTE 2: I was not sure how to create a new .txt file from scrtach with the script, so please create a blank .txt file
-with the appropriate name to hold the results in my analysis.
+## Installation
+1. Clone the repository
+2. Naviagte to directory containing files in terminal so it can run smoothly (or else you will get a 'file not found' message).
+3. Run python file (originally used VSCode)
+
+## Acknowledgments
+- Used Xpert Learning Assistant for assistance debugging.
+
+## Note:
+User may need to create a blank .txt file with the appropriate name to hold the results in my analysis.
 
 Thank you!
